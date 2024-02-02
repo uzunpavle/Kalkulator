@@ -29,18 +29,6 @@
         private void InitializeComponent()
         {
             this.Tabovi = new System.Windows.Forms.TabControl();
-            this.Prvi = new System.Windows.Forms.TextBox();
-            this.Drugi = new System.Windows.Forms.TextBox();
-            this.Prvi_broj = new System.Windows.Forms.Label();
-            this.Drugi_broj = new System.Windows.Forms.Label();
-            this.Rez = new System.Windows.Forms.TextBox();
-            this.Rezultat = new System.Windows.Forms.Label();
-            this.Brisanje = new System.Windows.Forms.Button();
-            this.Sabiranje = new System.Windows.Forms.Button();
-            this.Oduzimanje = new System.Windows.Forms.Button();
-            this.Jednako = new System.Windows.Forms.Button();
-            this.Mnozenje = new System.Windows.Forms.Button();
-            this.Deljenje = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.Hiljadu_rim = new System.Windows.Forms.Button();
             this.Petsto_rim = new System.Windows.Forms.Button();
@@ -62,6 +50,18 @@
             this.Tri = new System.Windows.Forms.Button();
             this.Dva = new System.Windows.Forms.Button();
             this.Jedan = new System.Windows.Forms.Button();
+            this.Prvi = new System.Windows.Forms.TextBox();
+            this.Drugi = new System.Windows.Forms.TextBox();
+            this.Prvi_broj = new System.Windows.Forms.Label();
+            this.Drugi_broj = new System.Windows.Forms.Label();
+            this.Rez = new System.Windows.Forms.TextBox();
+            this.Rezultat = new System.Windows.Forms.Label();
+            this.Brisanje = new System.Windows.Forms.Button();
+            this.Sabiranje = new System.Windows.Forms.Button();
+            this.Oduzimanje = new System.Windows.Forms.Button();
+            this.Jednako = new System.Windows.Forms.Button();
+            this.Mnozenje = new System.Windows.Forms.Button();
+            this.Deljenje = new System.Windows.Forms.Button();
             this.Prvi_broj_izabran = new System.Windows.Forms.RadioButton();
             this.Drugi_broj_izabran = new System.Windows.Forms.RadioButton();
             this.Biraj_broj = new System.Windows.Forms.Label();
@@ -79,117 +79,6 @@
             this.Tabovi.SelectedIndex = 0;
             this.Tabovi.Size = new System.Drawing.Size(512, 514);
             this.Tabovi.TabIndex = 0;
-            // 
-            // Prvi
-            // 
-            this.Prvi.Location = new System.Drawing.Point(727, 105);
-            this.Prvi.Name = "Prvi";
-            this.Prvi.ReadOnly = true;
-            this.Prvi.Size = new System.Drawing.Size(314, 20);
-            this.Prvi.TabIndex = 1;
-            // 
-            // Drugi
-            // 
-            this.Drugi.Location = new System.Drawing.Point(727, 176);
-            this.Drugi.Name = "Drugi";
-            this.Drugi.ReadOnly = true;
-            this.Drugi.Size = new System.Drawing.Size(314, 20);
-            this.Drugi.TabIndex = 2;
-            // 
-            // Prvi_broj
-            // 
-            this.Prvi_broj.AutoSize = true;
-            this.Prvi_broj.Location = new System.Drawing.Point(724, 89);
-            this.Prvi_broj.Name = "Prvi_broj";
-            this.Prvi_broj.Size = new System.Drawing.Size(45, 13);
-            this.Prvi_broj.TabIndex = 3;
-            this.Prvi_broj.Text = "Prvi broj";
-            // 
-            // Drugi_broj
-            // 
-            this.Drugi_broj.AutoSize = true;
-            this.Drugi_broj.Location = new System.Drawing.Point(724, 160);
-            this.Drugi_broj.Name = "Drugi_broj";
-            this.Drugi_broj.Size = new System.Drawing.Size(52, 13);
-            this.Drugi_broj.TabIndex = 4;
-            this.Drugi_broj.Text = "Drugi broj";
-            // 
-            // Rez
-            // 
-            this.Rez.Location = new System.Drawing.Point(727, 268);
-            this.Rez.Name = "Rez";
-            this.Rez.ReadOnly = true;
-            this.Rez.Size = new System.Drawing.Size(314, 20);
-            this.Rez.TabIndex = 5;
-            // 
-            // Rezultat
-            // 
-            this.Rezultat.AutoSize = true;
-            this.Rezultat.Location = new System.Drawing.Point(724, 252);
-            this.Rezultat.Name = "Rezultat";
-            this.Rezultat.Size = new System.Drawing.Size(46, 13);
-            this.Rezultat.TabIndex = 6;
-            this.Rezultat.Text = "Rezultat";
-            // 
-            // Brisanje
-            // 
-            this.Brisanje.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Brisanje.Location = new System.Drawing.Point(724, 354);
-            this.Brisanje.Name = "Brisanje";
-            this.Brisanje.Size = new System.Drawing.Size(75, 71);
-            this.Brisanje.TabIndex = 7;
-            this.Brisanje.Text = "C";
-            this.Brisanje.UseVisualStyleBackColor = true;
-            // 
-            // Sabiranje
-            // 
-            this.Sabiranje.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Sabiranje.Location = new System.Drawing.Point(805, 354);
-            this.Sabiranje.Name = "Sabiranje";
-            this.Sabiranje.Size = new System.Drawing.Size(75, 71);
-            this.Sabiranje.TabIndex = 8;
-            this.Sabiranje.Text = "+";
-            this.Sabiranje.UseVisualStyleBackColor = true;
-            // 
-            // Oduzimanje
-            // 
-            this.Oduzimanje.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Oduzimanje.Location = new System.Drawing.Point(886, 354);
-            this.Oduzimanje.Name = "Oduzimanje";
-            this.Oduzimanje.Size = new System.Drawing.Size(75, 71);
-            this.Oduzimanje.TabIndex = 9;
-            this.Oduzimanje.Text = "-";
-            this.Oduzimanje.UseVisualStyleBackColor = true;
-            // 
-            // Jednako
-            // 
-            this.Jednako.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Jednako.Location = new System.Drawing.Point(724, 431);
-            this.Jednako.Name = "Jednako";
-            this.Jednako.Size = new System.Drawing.Size(75, 71);
-            this.Jednako.TabIndex = 10;
-            this.Jednako.Text = "=";
-            this.Jednako.UseVisualStyleBackColor = true;
-            // 
-            // Mnozenje
-            // 
-            this.Mnozenje.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Mnozenje.Location = new System.Drawing.Point(805, 431);
-            this.Mnozenje.Name = "Mnozenje";
-            this.Mnozenje.Size = new System.Drawing.Size(75, 71);
-            this.Mnozenje.TabIndex = 11;
-            this.Mnozenje.Text = "×";
-            this.Mnozenje.UseVisualStyleBackColor = true;
-            // 
-            // Deljenje
-            // 
-            this.Deljenje.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Deljenje.Location = new System.Drawing.Point(886, 431);
-            this.Deljenje.Name = "Deljenje";
-            this.Deljenje.Size = new System.Drawing.Size(75, 71);
-            this.Deljenje.TabIndex = 12;
-            this.Deljenje.Text = "÷";
-            this.Deljenje.UseVisualStyleBackColor = true;
             // 
             // tabPage1
             // 
@@ -220,6 +109,7 @@
             this.Hiljadu_rim.TabIndex = 19;
             this.Hiljadu_rim.Text = "M";
             this.Hiljadu_rim.UseVisualStyleBackColor = true;
+            this.Hiljadu_rim.Click += new System.EventHandler(this.Hiljadu_rim_Click);
             // 
             // Petsto_rim
             // 
@@ -230,6 +120,7 @@
             this.Petsto_rim.TabIndex = 18;
             this.Petsto_rim.Text = "D";
             this.Petsto_rim.UseVisualStyleBackColor = true;
+            this.Petsto_rim.Click += new System.EventHandler(this.Petsto_rim_Click);
             // 
             // Sto_rim
             // 
@@ -240,6 +131,7 @@
             this.Sto_rim.TabIndex = 17;
             this.Sto_rim.Text = "C";
             this.Sto_rim.UseVisualStyleBackColor = true;
+            this.Sto_rim.Click += new System.EventHandler(this.Sto_rim_Click);
             // 
             // Pedeset_rim
             // 
@@ -250,6 +142,7 @@
             this.Pedeset_rim.TabIndex = 16;
             this.Pedeset_rim.Text = "L";
             this.Pedeset_rim.UseVisualStyleBackColor = true;
+            this.Pedeset_rim.Click += new System.EventHandler(this.Pedeset_rim_Click);
             // 
             // Deset_rim
             // 
@@ -260,6 +153,7 @@
             this.Deset_rim.TabIndex = 15;
             this.Deset_rim.Text = "X";
             this.Deset_rim.UseVisualStyleBackColor = true;
+            this.Deset_rim.Click += new System.EventHandler(this.Deset_rim_Click);
             // 
             // Pet_rim
             // 
@@ -270,6 +164,7 @@
             this.Pet_rim.TabIndex = 14;
             this.Pet_rim.Text = "V";
             this.Pet_rim.UseVisualStyleBackColor = true;
+            this.Pet_rim.Click += new System.EventHandler(this.Pet_rim_Click);
             // 
             // Jedan_rim
             // 
@@ -280,6 +175,7 @@
             this.Jedan_rim.TabIndex = 13;
             this.Jedan_rim.Text = "I";
             this.Jedan_rim.UseVisualStyleBackColor = true;
+            this.Jedan_rim.Click += new System.EventHandler(this.Jedan_rim_Click);
             // 
             // tabPage2
             // 
@@ -424,6 +320,126 @@
             this.Jedan.TabIndex = 14;
             this.Jedan.Text = "1";
             this.Jedan.UseVisualStyleBackColor = true;
+            // 
+            // Prvi
+            // 
+            this.Prvi.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Prvi.Location = new System.Drawing.Point(727, 105);
+            this.Prvi.Name = "Prvi";
+            this.Prvi.ReadOnly = true;
+            this.Prvi.Size = new System.Drawing.Size(314, 20);
+            this.Prvi.TabIndex = 1;
+            // 
+            // Drugi
+            // 
+            this.Drugi.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Drugi.Location = new System.Drawing.Point(727, 176);
+            this.Drugi.Name = "Drugi";
+            this.Drugi.ReadOnly = true;
+            this.Drugi.Size = new System.Drawing.Size(314, 20);
+            this.Drugi.TabIndex = 2;
+            // 
+            // Prvi_broj
+            // 
+            this.Prvi_broj.AutoSize = true;
+            this.Prvi_broj.Location = new System.Drawing.Point(724, 89);
+            this.Prvi_broj.Name = "Prvi_broj";
+            this.Prvi_broj.Size = new System.Drawing.Size(45, 13);
+            this.Prvi_broj.TabIndex = 3;
+            this.Prvi_broj.Text = "Prvi broj";
+            // 
+            // Drugi_broj
+            // 
+            this.Drugi_broj.AutoSize = true;
+            this.Drugi_broj.Location = new System.Drawing.Point(724, 160);
+            this.Drugi_broj.Name = "Drugi_broj";
+            this.Drugi_broj.Size = new System.Drawing.Size(52, 13);
+            this.Drugi_broj.TabIndex = 4;
+            this.Drugi_broj.Text = "Drugi broj";
+            // 
+            // Rez
+            // 
+            this.Rez.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rez.Location = new System.Drawing.Point(727, 244);
+            this.Rez.Name = "Rez";
+            this.Rez.ReadOnly = true;
+            this.Rez.Size = new System.Drawing.Size(314, 20);
+            this.Rez.TabIndex = 5;
+            // 
+            // Rezultat
+            // 
+            this.Rezultat.AutoSize = true;
+            this.Rezultat.Location = new System.Drawing.Point(724, 228);
+            this.Rezultat.Name = "Rezultat";
+            this.Rezultat.Size = new System.Drawing.Size(46, 13);
+            this.Rezultat.TabIndex = 6;
+            this.Rezultat.Text = "Rezultat";
+            // 
+            // Brisanje
+            // 
+            this.Brisanje.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Brisanje.Location = new System.Drawing.Point(724, 354);
+            this.Brisanje.Name = "Brisanje";
+            this.Brisanje.Size = new System.Drawing.Size(75, 71);
+            this.Brisanje.TabIndex = 7;
+            this.Brisanje.Text = "C";
+            this.Brisanje.UseVisualStyleBackColor = true;
+            this.Brisanje.Click += new System.EventHandler(this.Brisanje_Click);
+            // 
+            // Sabiranje
+            // 
+            this.Sabiranje.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Sabiranje.Location = new System.Drawing.Point(805, 354);
+            this.Sabiranje.Name = "Sabiranje";
+            this.Sabiranje.Size = new System.Drawing.Size(75, 71);
+            this.Sabiranje.TabIndex = 8;
+            this.Sabiranje.Text = "+";
+            this.Sabiranje.UseVisualStyleBackColor = true;
+            this.Sabiranje.Click += new System.EventHandler(this.Sabiranje_Click);
+            // 
+            // Oduzimanje
+            // 
+            this.Oduzimanje.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Oduzimanje.Location = new System.Drawing.Point(886, 354);
+            this.Oduzimanje.Name = "Oduzimanje";
+            this.Oduzimanje.Size = new System.Drawing.Size(75, 71);
+            this.Oduzimanje.TabIndex = 9;
+            this.Oduzimanje.Text = "-";
+            this.Oduzimanje.UseVisualStyleBackColor = true;
+            this.Oduzimanje.Click += new System.EventHandler(this.Oduzimanje_Click);
+            // 
+            // Jednako
+            // 
+            this.Jednako.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Jednako.Location = new System.Drawing.Point(724, 431);
+            this.Jednako.Name = "Jednako";
+            this.Jednako.Size = new System.Drawing.Size(75, 71);
+            this.Jednako.TabIndex = 10;
+            this.Jednako.Text = "=";
+            this.Jednako.UseVisualStyleBackColor = true;
+            this.Jednako.Click += new System.EventHandler(this.Jednako_Click);
+            // 
+            // Mnozenje
+            // 
+            this.Mnozenje.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Mnozenje.Location = new System.Drawing.Point(805, 431);
+            this.Mnozenje.Name = "Mnozenje";
+            this.Mnozenje.Size = new System.Drawing.Size(75, 71);
+            this.Mnozenje.TabIndex = 11;
+            this.Mnozenje.Text = "×";
+            this.Mnozenje.UseVisualStyleBackColor = true;
+            this.Mnozenje.Click += new System.EventHandler(this.Mnozenje_Click);
+            // 
+            // Deljenje
+            // 
+            this.Deljenje.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Deljenje.Location = new System.Drawing.Point(886, 431);
+            this.Deljenje.Name = "Deljenje";
+            this.Deljenje.Size = new System.Drawing.Size(75, 71);
+            this.Deljenje.TabIndex = 12;
+            this.Deljenje.Text = "÷";
+            this.Deljenje.UseVisualStyleBackColor = true;
+            this.Deljenje.Click += new System.EventHandler(this.Deljenje_Click);
             // 
             // Prvi_broj_izabran
             // 
