@@ -65,6 +65,9 @@
             this.Prvi_broj_izabran = new System.Windows.Forms.RadioButton();
             this.Drugi_broj_izabran = new System.Windows.Forms.RadioButton();
             this.Biraj_broj = new System.Windows.Forms.Label();
+            this.Prvi_Big = new System.Windows.Forms.TextBox();
+            this.Drugi_Big = new System.Windows.Forms.TextBox();
+            this.Rez_Big = new System.Windows.Forms.TextBox();
             this.Tabovi.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -220,6 +223,7 @@
             this.Tacka.TabIndex = 22;
             this.Tacka.Text = ".";
             this.Tacka.UseVisualStyleBackColor = true;
+            this.Tacka.Click += new System.EventHandler(this.Tacka_Click);
             // 
             // Nula
             // 
@@ -230,6 +234,7 @@
             this.Nula.TabIndex = 21;
             this.Nula.Text = "0";
             this.Nula.UseVisualStyleBackColor = true;
+            this.Nula.Click += new System.EventHandler(this.Nula_Click);
             // 
             // Osam
             // 
@@ -240,6 +245,7 @@
             this.Osam.TabIndex = 20;
             this.Osam.Text = "8";
             this.Osam.UseVisualStyleBackColor = true;
+            this.Osam.Click += new System.EventHandler(this.Osam_Click);
             // 
             // Devet
             // 
@@ -250,6 +256,7 @@
             this.Devet.TabIndex = 20;
             this.Devet.Text = "9";
             this.Devet.UseVisualStyleBackColor = true;
+            this.Devet.Click += new System.EventHandler(this.Devet_Click);
             // 
             // Sedam
             // 
@@ -260,6 +267,7 @@
             this.Sedam.TabIndex = 19;
             this.Sedam.Text = "7";
             this.Sedam.UseVisualStyleBackColor = true;
+            this.Sedam.Click += new System.EventHandler(this.Sedam_Click);
             // 
             // Sest
             // 
@@ -270,6 +278,7 @@
             this.Sest.TabIndex = 18;
             this.Sest.Text = "6";
             this.Sest.UseVisualStyleBackColor = true;
+            this.Sest.Click += new System.EventHandler(this.Sest_Click);
             // 
             // Pet
             // 
@@ -280,6 +289,7 @@
             this.Pet.TabIndex = 17;
             this.Pet.Text = "5";
             this.Pet.UseVisualStyleBackColor = true;
+            this.Pet.Click += new System.EventHandler(this.Pet_Click);
             // 
             // Cetiri
             // 
@@ -290,6 +300,7 @@
             this.Cetiri.TabIndex = 16;
             this.Cetiri.Text = "4";
             this.Cetiri.UseVisualStyleBackColor = true;
+            this.Cetiri.Click += new System.EventHandler(this.Cetiri_Click);
             // 
             // Tri
             // 
@@ -300,6 +311,7 @@
             this.Tri.TabIndex = 15;
             this.Tri.Text = "3";
             this.Tri.UseVisualStyleBackColor = true;
+            this.Tri.Click += new System.EventHandler(this.Tri_Click);
             // 
             // Dva
             // 
@@ -310,6 +322,7 @@
             this.Dva.TabIndex = 15;
             this.Dva.Text = "2";
             this.Dva.UseVisualStyleBackColor = true;
+            this.Dva.Click += new System.EventHandler(this.Dva_Click);
             // 
             // Jedan
             // 
@@ -320,6 +333,7 @@
             this.Jedan.TabIndex = 14;
             this.Jedan.Text = "1";
             this.Jedan.UseVisualStyleBackColor = true;
+            this.Jedan.Click += new System.EventHandler(this.Jedan_Click);
             // 
             // Prvi
             // 
@@ -472,11 +486,38 @@
             this.Biraj_broj.TabIndex = 15;
             this.Biraj_broj.Text = "Izaberite broj za unos";
             // 
+            // Prvi_Big
+            // 
+            this.Prvi_Big.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Prvi_Big.Location = new System.Drawing.Point(727, 131);
+            this.Prvi_Big.Name = "Prvi_Big";
+            this.Prvi_Big.Size = new System.Drawing.Size(314, 20);
+            this.Prvi_Big.TabIndex = 16;
+            // 
+            // Drugi_Big
+            // 
+            this.Drugi_Big.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Drugi_Big.Location = new System.Drawing.Point(727, 202);
+            this.Drugi_Big.Name = "Drugi_Big";
+            this.Drugi_Big.Size = new System.Drawing.Size(314, 20);
+            this.Drugi_Big.TabIndex = 17;
+            // 
+            // Rez_Big
+            // 
+            this.Rez_Big.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rez_Big.Location = new System.Drawing.Point(727, 270);
+            this.Rez_Big.Name = "Rez_Big";
+            this.Rez_Big.Size = new System.Drawing.Size(314, 20);
+            this.Rez_Big.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1125, 573);
+            this.Controls.Add(this.Rez_Big);
+            this.Controls.Add(this.Drugi_Big);
+            this.Controls.Add(this.Prvi_Big);
             this.Controls.Add(this.Biraj_broj);
             this.Controls.Add(this.Drugi_broj_izabran);
             this.Controls.Add(this.Prvi_broj_izabran);
@@ -542,6 +583,9 @@
         private System.Windows.Forms.RadioButton Prvi_broj_izabran;
         private System.Windows.Forms.RadioButton Drugi_broj_izabran;
         private System.Windows.Forms.Label Biraj_broj;
+        private System.Windows.Forms.TextBox Prvi_Big;
+        private System.Windows.Forms.TextBox Drugi_Big;
+        private System.Windows.Forms.TextBox Rez_Big;
     }
 }
 
