@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,66 +12,120 @@ namespace Kalkulator
     {
         public static bool Proveri_Veliki(string input) //ne radi posle odredjenog broja cifara, napravi ga rucno, broj je validan kad je na pocetku minus(moze i ne mora), sve su brojevi i 0 ili 1 tacka
         {
-            string reg = "[+-]?([0-9]*[.])?[0-9]+";
-            Regex re = new Regex(reg);
-            if (re.IsMatch(input))
-                return true;
-            else
-                return false;
+            string pattern = @"^[-+]?[0-9]*\.?[0-9]+$";
+            Regex regex = new Regex(pattern);
+            return regex.IsMatch(input);
         }
 
+        static List<char> PrebaciUListu(string input)
+        {
+            List<char> charList = new List<char>();
+            foreach (char c in input)
+            {
+                charList.Add(c);
+            }
+            return charList;
+        }
+
+        static void Izjednaci_Liste(List<char> list1, List<char> list2)
+        {
+            int maxLength = Math.Max(list1.Count, list2.Count);
+
+            while (list1.Count < maxLength)
+            {
+                list1.Insert(0, '0'); 
+            }
+
+            while (list2.Count < maxLength)
+            {
+                list2.Insert(0, '0'); 
+            }
+        }
         public static string Saberi(string num1, string num2)
         {
-            // Find the positions of the decimal points
-            int decimalIndex1 = num1.IndexOf('.');
-            int decimalIndex2 = num2.IndexOf('.');
 
-            // Determine the maximum length
-            int maxLength = Math.Max(num1.Length, num2.Length);
+            string[] prvi = num1.Split('.');
+            string[] drugi = num2.Split('.');
 
-            // Adjust the lengths of the numbers to align the decimal points
-            num1 = num1.PadRight(maxLength, '0');
-            num2 = num2.PadRight(maxLength, '0');
+            List<char> prvi_ceo = PrebaciUListu(prvi[0]);
+            List<char> drugi_ceo = PrebaciUListu(drugi[0]);
+            Izjednaci_Liste(prvi_ceo, drugi_ceo);
 
-            // Initialize result and carry
-            char[] result = new char[maxLength + 1];
-            for (int i = 0; i < result.Length; i++)
-            {
-                result[i] = '0';
-            }
+            string celi = "";
             int carry = 0;
 
-            // Iterate through the digits, starting from the least significant digit
-            for (int i = maxLength - 1; i >= 0; i--)
+            for (int i = prvi_ceo.Count - 1; i >= 0; i--)
             {
-                // Skip the decimal point
-                if (num1[i] == '.')
-                    continue;
+                int Num1 = prvi_ceo[i] - '0';
+                int Num2 = drugi_ceo[i] - '0';
 
-                // Convert characters to integers
-                int digit1 = i < num1.Length ? num1[i] - '0' : 0;
-                int digit2 = i < num2.Length ? num2[i] - '0' : 0;
-
-                // Perform addition
-                int sum = digit1 + digit2 + carry;
-
-                // Update carry
+                int sum = Num1 + Num2 + carry;
                 carry = sum / 10;
+                sum %= 10;
 
-                // Update result
-                result[i + 1] = (char)((sum % 10) + '0');
+                celi = (char)(sum + '0') + celi;
             }
 
-            // Convert result to string
-            string resultString = new string(result);
+            if (carry > 0)
+            {
+                celi = (char)(carry + '0') + celi;
+            }
 
-            // Insert decimal point at appropriate position
-            int decimalPosition = maxLength - Math.Max(decimalIndex1, decimalIndex2);
-            resultString = resultString.Insert(decimalPosition, ".");
+            if (prvi.Length == 1) 
+            {
+                prvi.;
+            }
+            if (drugi[1] == null)
+            {
+                drugi[1] = "0";
+            }
 
-            // Trim leading zeros and return the result
-            return resultString.TrimStart('0');
+
+            List<char> prvi_deci = PrebaciUListu(prvi[1]);
+            List<char> drugi_deci = PrebaciUListu(drugi[1]);
+            Izjednaci_Liste(prvi_deci, drugi_deci);
+
+            string deci = "";
+            carry = 0;
+
+            for (int i = prvi_deci.Count - 1; i >= 0; i--)
+            {
+                int Num1 = prvi_deci[i] - '0';
+                int Num2 = drugi_deci[i] - '0';
+
+                int sum = Num1 + Num2 + carry;
+                carry = sum / 10;
+                sum %= 10;
+
+                deci = (char)(sum + '0') + deci;
+            }
+
+            if (carry > 0)
+            {
+                deci = (char)(carry + '0') + deci;
+            }
+
+            if ((deci.Length > prvi[1].Length) && (deci.Length > drugi[1].Length))
+            {
+                int celi_p = Convert.ToInt32(celi);
+                celi_p++;
+                celi = Convert.ToString(celi_p);
+                deci = deci.Substring(1);
+            }
+
+            string rez;
+            if (deci == "0")
+            {
+                rez = celi;
+            }
+            else
+            {
+                rez = celi + "." + deci;
+            }
+
+            return rez;
         }
+        
 
     }
 }
