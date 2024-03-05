@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms.VisualStyles;
 
 namespace Kalkulator
 {
@@ -41,11 +42,33 @@ namespace Kalkulator
                 list2.Insert(0, '0'); 
             }
         }
+
+        public static string[] Split(string a)
+        {
+            bool ima_tacku = false;
+            foreach (char c in a)
+            {
+                if (c == '.') ima_tacku = true;
+            }
+
+            string[] niz = new string[2];
+            if (ima_tacku == true)
+            {
+                niz = a.Split('.');
+            }
+            else
+            {
+                niz[0] = a;
+                niz[1] = "0";
+            }
+            return niz;
+        }
+
         public static string Saberi(string num1, string num2)
         {
 
-            string[] prvi = num1.Split('.');
-            string[] drugi = num2.Split('.');
+            string[] prvi = Split(num1);
+            string[] drugi = Split(num2);
 
             List<char> prvi_ceo = PrebaciUListu(prvi[0]);
             List<char> drugi_ceo = PrebaciUListu(drugi[0]);
@@ -70,16 +93,6 @@ namespace Kalkulator
             {
                 celi = (char)(carry + '0') + celi;
             }
-
-            if (prvi.Length == 1) 
-            {
-                prvi.;
-            }
-            if (drugi[1] == null)
-            {
-                drugi[1] = "0";
-            }
-
 
             List<char> prvi_deci = PrebaciUListu(prvi[1]);
             List<char> drugi_deci = PrebaciUListu(drugi[1]);
@@ -126,6 +139,6 @@ namespace Kalkulator
             return rez;
         }
         
-
+        
     }
 }
