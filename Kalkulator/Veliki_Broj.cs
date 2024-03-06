@@ -307,7 +307,8 @@ namespace Kalkulator
                 rez = Dodaj_Tacku(rez, '.', rez.Length - eks);
             }
 
-            return rez;          
+            return rez;    
+            
         }
     }
 }
