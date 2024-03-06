@@ -309,6 +309,7 @@ namespace Kalkulator
 
             return rez;    
             
+
         }
     }
 }
