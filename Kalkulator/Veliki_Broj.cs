@@ -105,6 +105,25 @@ namespace Kalkulator
             return stringBuilder.ToString();
         }
 
+        static int Eksponent(string s)
+        {
+            bool flag = false;
+            int eks = 0;
+            foreach (char c in s)
+            {
+                if (c == '.')
+                {
+                    flag = true;
+                    continue;
+                }
+                if (flag == true)
+                {
+                    eks++;
+                }
+            }
+            return eks;
+        }
+
         public static string Saberi(string num1, string num2)
         {
 
@@ -253,73 +272,42 @@ namespace Kalkulator
 
         public static string Pomnozi(string num1, string num2)
         {
-            bool flag = false;
-            int eks_prvi = 0;
-            int eks_drugi = 0;
-            foreach (char c in num1)
-            {
-                if (c == '.')
-                {
-                    flag = true;
-                    continue;
-                }
-                if (flag == true)
-                {
-                    eks_prvi++;
-                }
-            }
-            flag = false;
-            foreach (char c in num2)
-            {
-                if (c == '.')
-                {
-                    flag = true;
-                    continue;
-                }
-                if (flag == true)
-                {
-                    eks_drugi++;
-                }
-            }
+            int eks_prvi = Eksponent(num1);
+            int eks_drugi = Eksponent(num2);
+            int eks = eks_drugi + eks_prvi;
 
             List<char> prvi = Izbaci_Tacku(num1);
             List<char> drugi = Izbaci_Tacku(num2);
-            Izjednaci_Liste(prvi, drugi);
 
-            prvi.Reverse();
-            drugi.Reverse();
-
-            List<int> result = new List<int>(new int[prvi.Count + drugi.Count]);
-
-            for (int i = 0; i < prvi.Count; i++)
+            string[] brojevi = new string[drugi.Count];
+            int carry = 0;
+            for (int i = drugi.Count; i > 0; i--)
             {
-                for (int j = 0; j < drugi.Count; j++)
+                for (int j = prvi.Count; j > 0; j--)
                 {
-                    result[i + j] += (prvi[i] - '0') * (drugi[j] - '0');
-                    result[i + j + 1] += result[i + j] / 10;
-                    result[i + j] %= 10;
+                    int broj = Convert.ToInt32(char.GetNumericValue(drugi[i - 1])) * Convert.ToInt32(char.GetNumericValue(prvi[j - 1])) + carry;
+                    carry = broj / 10;
+                    brojevi[i - 1] = Convert.ToString(broj % 10) + brojevi[i - 1];
                 }
+                if (carry > 0) brojevi[i - 1] = Convert.ToString(carry) + brojevi[i - 1];
+                carry = 0;
             }
 
-            StringBuilder sb = new StringBuilder();
-            for (int i = result.Count - 1; i >= 0; i--)
+            string dopuna = "0";
+            for (int i = brojevi.Length; i > 1; i--)
+            {               
+                string pom = brojevi[i - 2] + dopuna;
+                brojevi[i - 2] = Saberi(brojevi[i - 1], pom);
+                dopuna += "0";
+            }
+            string rez = brojevi[0];
+
+            if (eks > 0)
             {
-                sb.Insert(0, result[i]);
+                rez = Dodaj_Tacku(rez, '.', rez.Length - eks);
             }
 
-            while (sb.Length > 1 && sb[0] == '0')
-            {
-                sb.Remove(0, 1);
-            }
-
-            string broj = sb.ToString();
-
-            if ((prvi.Count - eks_prvi - eks_drugi) > 0)
-            {
-                broj = Dodaj_Tacku(broj, '.', prvi.Count - eks_drugi - eks_prvi);
-            }
-
-            return broj;
+            return rez;          
         }
     }
 }
