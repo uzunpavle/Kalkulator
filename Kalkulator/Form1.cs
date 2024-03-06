@@ -315,7 +315,12 @@ namespace Kalkulator
                     case "-":
                         if ((Veliki_Broj.Proveri_Veliki(Prvi_Big.Text) == true) && (Veliki_Broj.Proveri_Veliki(Drugi_Big.Text) == true))
                         {
-
+                            string prvi = Prvi_Big.Text;
+                            string drugi = Drugi_Big.Text;
+                            prvi = Veliki_Broj.TrimZerosFromDecimal(prvi);
+                            drugi = Veliki_Broj.TrimZerosFromDecimal(drugi);
+                            string rez = Veliki_Broj.Oduzmi(prvi, drugi);
+                            Rez_Big.Text = rez;
                         }
                         else
                         {
@@ -336,7 +341,10 @@ namespace Kalkulator
                     case "*":
                         if ((Veliki_Broj.Proveri_Veliki(Prvi_Big.Text) == true) && (Veliki_Broj.Proveri_Veliki(Drugi_Big.Text) == true))
                         {
-
+                            string prvi = Prvi_Big.Text;
+                            string drugi = Drugi_Big.Text;
+                            string rez = Veliki_Broj.Pomnozi(prvi, drugi);
+                            Rez_Big.Text = rez;
                         }
                         else
                         {
