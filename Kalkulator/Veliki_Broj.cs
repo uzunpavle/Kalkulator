@@ -313,12 +313,12 @@ namespace Kalkulator
             }
 
             string broj = sb.ToString();
-
+            /*
             if ((prvi.Count - eks_prvi - eks_drugi) > 0)
             {
                 broj = Dodaj_Tacku(broj, '.', prvi.Count - eks_drugi - eks_prvi);
             }
-
+            */
             return broj;
         }
     }

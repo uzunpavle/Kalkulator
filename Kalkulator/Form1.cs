@@ -293,7 +293,19 @@ namespace Kalkulator
                         {
                             string prvi = Prvi_Big.Text;
                             string drugi = Drugi_Big.Text;
-                            string rez = Veliki_Broj.Saberi(prvi,drugi);
+                            string rez = "";
+                            if ((prvi[0] == '-') && (drugi[0] == '-'))
+                            {
+                                prvi = prvi.Substring(1);
+                                drugi = drugi.Substring(1);
+                                rez = "-" + Veliki_Broj.Saberi(prvi, drugi);                               
+                            }
+                            else if ((prvi[0] == '-') && (drugi[0] != '-'))
+                            {
+                                
+                            }
+
+                                rez = Veliki_Broj.Saberi(prvi,drugi);
                             Rez_Big.Text = rez;
                         }
                         else
