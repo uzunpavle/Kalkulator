@@ -14,9 +14,11 @@ namespace Kalkulator
     public partial class Form1 : Form
     {
         public string operacija;
+        public static Form1 forma1;
         public Form1()
         {
             InitializeComponent();
+            forma1 = this;
         }
 
         private void Brisanje_Click(object sender, EventArgs e)
@@ -346,27 +348,27 @@ namespace Kalkulator
                             if ((prvi[0] != '-') && (drugi[0] != '-'))
                             {
                                 rez = Veliki_Broj.Saberi(prvi, drugi);
+                                if (Veliki_Broj.CompareDecimalStrings(prvi, drugi) == 1) rez =Veliki_Broj.Oduzmi(prvi, drugi);
+                                else rez = "-" + Veliki_Broj.Oduzmi(drugi, prvi);
+
                             }
                             else if ((prvi[0] == '-') && (drugi[0] != '-'))
                             {
                                 prvi = prvi.Substring(1);
-
-
+                                rez = "-" + Veliki_Broj.Saberi(prvi, drugi);
                             }
                             else if ((prvi[0] != '-') && (drugi[0] == '-'))
                             {
                                 drugi = drugi.Substring(1);
-
-
+                                rez = Veliki_Broj.Saberi(prvi, drugi);
                             }
                             else
                             {
                                 prvi = prvi.Substring(1);
                                 drugi = drugi.Substring(1);
-                                rez = Veliki_Broj.Saberi(prvi, drugi);
-                                rez = "-" + rez;
+                                if (Veliki_Broj.CompareDecimalStrings(prvi, drugi) == 1) rez = "-" + Veliki_Broj.Oduzmi(prvi, drugi);
+                                else rez =Veliki_Broj.Oduzmi(drugi, prvi);
                             }
-                            //string rez = Veliki_Broj.Oduzmi(prvi, drugi);
                             Rez_Big.Text = rez;
                         }
                         else
@@ -390,7 +392,23 @@ namespace Kalkulator
                         {
                             string prvi = Prvi_Big.Text;
                             string drugi = Drugi_Big.Text;
+                            bool prvi_minus = false;
+                            bool drugi_minus = false;
+                            if (prvi[0] == '-')
+                            {
+                                prvi_minus = true;
+                                prvi = prvi.Substring(1);
+                            }
+                            if (drugi[0] == '-')
+                            {
+                                drugi_minus = true;
+                                drugi = drugi.Substring(1);
+                            }
                             string rez = Veliki_Broj.Pomnozi(prvi, drugi);
+                            if (((prvi_minus == true) && (drugi_minus == false)) || ((prvi_minus == false) && (drugi_minus == true)))
+                            {
+                                rez = "-" + rez;
+                            }
                             Rez_Big.Text = rez;
                         }
                         else
@@ -414,7 +432,23 @@ namespace Kalkulator
                         {
                             string prvi = Prvi_Big.Text;
                             string drugi = Drugi_Big.Text;
-                            int rez = Veliki_Broj.Podeli_Medjurezultat(prvi, drugi);
+                            bool prvi_minus = false;
+                            bool drugi_minus = false;
+                            if (prvi[0] == '-')
+                            {
+                                prvi_minus = true;
+                                prvi = prvi.Substring(1);
+                            }
+                            if (drugi[0] == '-')
+                            {
+                                drugi_minus = true;
+                                drugi = drugi.Substring(1);
+                            }
+                            string rez = Veliki_Broj.Podeli(prvi, drugi);
+                            if (((prvi_minus == true) && (drugi_minus == false)) || ((prvi_minus == false) && (drugi_minus == true)))
+                            {
+                                rez = "-" + rez;
+                            }
                             Rez_Big.Text = rez.ToString();
                         }
                         else

@@ -337,75 +337,7 @@ namespace Kalkulator
         
         public static string Oduzmi(string a, string b)
         {
-            /*
-            List<char> prvi = Izbaci_Tacku(num1);
-            List<char> drugi = Izbaci_Tacku(num2);
-
-            int tacka_prvi = 0;
-            bool ima_tacke = false;
-            foreach (char c in num1)
-            {
-                if (c == '.')
-                {
-                    ima_tacke = true;
-                    continue;
-                }
-                if (ima_tacke == true)
-                {
-                    tacka_prvi++;
-                }
-            }
-            int tacka_drugi = 0;
-            ima_tacke = false;
-            foreach (char c in num2)
-            {
-                if (c == '.')
-                {
-                    ima_tacke = true;
-                    continue;
-                }
-                if (ima_tacke == true)
-                {
-                    tacka_drugi++;
-                }
-            }
-            int tacka = tacka_prvi;
-            if (tacka_drugi > tacka_prvi) tacka = tacka_drugi;
-
-            Izjednaci_Liste(prvi, drugi);
-
-            int carry = 0;
-            StringBuilder result = new StringBuilder();
-
-            for (int i = prvi.Count - 1; i >= 0; i--)
-            {
-                int digit1 = prvi[i] - '0';
-                int digit2 = drugi[i] - '0';
-
-                int diff = digit1 - digit2 - carry;
-
-                if (diff < 0)
-                {
-                    diff += 10;
-                    carry = 1;
-                }
-                else
-                {
-                    carry = 0;
-                }
-
-                result.Insert(0, diff);
-            }
-
-            string broj = result.ToString().TrimStart('0');
-
-            if ((prvi.Count - tacka) > 0)
-            {
-                broj = Dodaj_Tacku(broj, '.', prvi.Count - tacka);
-            }
-
-            return broj;
-            */
+            
 
             if (a == b) return "0";
             if (!Decimalan(a) && !Decimalan(b))
@@ -544,22 +476,120 @@ namespace Kalkulator
 
         public static string Podeli(string a, string b)
         {
-            if (b == "0") return "Ne mozete deliti sa 0";
-            string rez = string.Empty;
-            string kol = Kolicnik(a, b);
-            string temp = Oduzmi(a,Pomnozi(kol,b));
-            if (temp == "0") return rez + kol;
-            else rez = rez + kol + ".";
-            //int br_decimala = int.Parse(Form1.form1instance.textBox4.Text);
-            for (int i = 0; i < 42; i++)
+            int ukupno = 0;
+            if (!Decimalan(a) && !Decimalan(b))
             {
-                if (temp == "0") break;
-                temp = temp + "0";
-                kol = Kolicnik(temp, b);
-                rez = rez + kol;
-                temp = Oduzmi(temp,Pomnozi(kol,b));
+                if (b == "0") return "Ne mozete deliti sa 0";
+                string rez = string.Empty;
+                string kol = Kolicnik(a, b);
+                string temp = Oduzmi(a, Pomnozi(kol,b));
+                if (temp == "0") return rez + kol;
+                else rez = rez + kol + ".";
+                /*while (temp != "0")
+                {
+                    temp = temp + "0";
+                    kol = Kolicnik(new VelikiBroj(temp), b);
+                    rez = rez + kol;
+                    temp = new VelikiBroj(temp) - new VelikiBroj(new VelikiBroj(kol) * b);
+                }*/
+                int br_decimala = int.Parse(Form1.forma1.Decimale.Text);
+                for (int i = 0; i < br_decimala + ukupno; i++)
+                {
+                    if (temp == "0") break;
+                    temp = temp + "0";
+                    kol = Kolicnik(temp, b);
+                    rez = rez + kol;
+                    temp = Oduzmi(temp, Pomnozi(kol, b));
+                }
+                return rez;
             }
-            return rez;
+            if (Decimalan(a) && Decimalan(b))
+            {
+                int mz1 = MestoZareza(a);
+                int mz2 = MestoZareza(b);
+                ukupno = 0;
+                int do_kraja1 = a.Length - mz1 - 1;
+                int do_kraja2 = b.Length - mz2 - 1;
+                string pom1 = a;
+                string pom2 = b;
+                ukupno = do_kraja2 - do_kraja1;
+                if (ukupno > 0)
+                {
+                    for (int i = 0; i < ukupno; i++)
+                    {
+                        pom1 = pom1 + "0";
+                    }
+                }
+                else
+                {
+                    ukupno = -ukupno;
+                    for (int i = 0; i < ukupno; i++)
+                    {
+                        pom2 = pom2 + "0";
+                    }
+                }
+                pom1 = pom1.Replace(".", string.Empty);
+                pom2 = pom2.Replace(".", string.Empty);
+                do_kraja1 = pom1.Length - mz1;
+                do_kraja2 = pom2.Length - mz2;
+                pom1 = pom1.TrimStart('0');
+                pom2 = pom2.TrimStart('0');
+                if (do_kraja2 > do_kraja1)
+                {
+
+                    string rez = Podeli(pom1, pom2);
+                    int mz_rezultata = 0;
+                    if (rez.IndexOf('.') == -1)
+                    {
+                        mz_rezultata = rez.Length - 1;
+                    }
+                    else
+                    {
+                        mz_rezultata = rez.IndexOf('.');
+                        rez = rez.Replace(".", string.Empty);
+                    }
+                    StringBuilder sb = new StringBuilder(rez);
+                    sb.Insert(mz_rezultata + ukupno, ".");
+                    rez = sb.ToString();
+                    rez = rez.TrimStart('0');
+                    if (rez[0] == 46) rez = "0" + rez;
+                    return rez;
+
+                }
+                else if (do_kraja1 > do_kraja2)
+                {
+                    ukupno = do_kraja1 - do_kraja2;
+                    string rez = Podeli(pom1,pom2);
+                    int mz_rezultata = rez.IndexOf('.');
+                    rez = rez.Replace(".", string.Empty);
+                    StringBuilder sb = new StringBuilder(rez);
+                    sb.Insert(mz_rezultata - ukupno, ".");
+                    rez = sb.ToString();
+                    rez = rez.TrimStart('0');
+                    return rez;
+                }
+                else
+                {
+                    string rez = Podeli(pom1,pom2);
+                    return rez;
+                }
+
+            }
+            if (Decimalan(a) && !Decimalan(b))
+            {
+                int mz1 = MestoZareza(a);
+                string pom1 = a.Replace(".", string.Empty);
+                ukupno = pom1.Length - mz1;
+                string pom = b;
+                pom = pom + ".";
+                return Podeli(a, pom);
+            }
+            else
+            {
+                string pom = a;
+                pom = pom + ".";
+                return Podeli(pom,b);
+            }
         }
     }
 }

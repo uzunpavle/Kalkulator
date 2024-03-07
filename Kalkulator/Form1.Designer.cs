@@ -68,6 +68,8 @@
             this.Prvi_Big = new System.Windows.Forms.TextBox();
             this.Drugi_Big = new System.Windows.Forms.TextBox();
             this.Rez_Big = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Decimale = new System.Windows.Forms.TextBox();
             this.Tabovi.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -510,11 +512,30 @@
             this.Rez_Big.Size = new System.Drawing.Size(314, 20);
             this.Rez_Big.TabIndex = 18;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(724, 307);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Broj decimala";
+            // 
+            // Decimale
+            // 
+            this.Decimale.Location = new System.Drawing.Point(727, 323);
+            this.Decimale.Name = "Decimale";
+            this.Decimale.Size = new System.Drawing.Size(100, 20);
+            this.Decimale.TabIndex = 20;
+            this.Decimale.Text = "20";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1125, 573);
+            this.Controls.Add(this.Decimale);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Rez_Big);
             this.Controls.Add(this.Drugi_Big);
             this.Controls.Add(this.Prvi_Big);
@@ -586,6 +607,8 @@
         private System.Windows.Forms.TextBox Prvi_Big;
         private System.Windows.Forms.TextBox Drugi_Big;
         private System.Windows.Forms.TextBox Rez_Big;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox Decimale;
     }
 }
 
