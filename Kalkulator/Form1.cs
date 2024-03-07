@@ -293,7 +293,30 @@ namespace Kalkulator
                         {
                             string prvi = Prvi_Big.Text;
                             string drugi = Drugi_Big.Text;
-                            string rez = Veliki_Broj.Saberi(prvi,drugi);
+                            string rez = "";
+                            if ((prvi[0] != '-') && (drugi[0] != '-')) {
+                                rez = Veliki_Broj.Saberi(prvi, drugi);
+                            }
+                            else if ((prvi[0] == '-') && (drugi[0] != '-'))
+                            {
+                                prvi = prvi.Substring(1);
+                                if (Veliki_Broj.CompareDecimalStrings(prvi, drugi) == 1) rez = "-" + Veliki_Broj.Oduzmi(prvi, drugi);
+                                else rez = Veliki_Broj.Oduzmi(drugi,prvi);
+
+                            }
+                            else if ((prvi[0] != '-') && (drugi[0] == '-'))
+                            {
+                                drugi = drugi.Substring(1);
+                                if (Veliki_Broj.CompareDecimalStrings(prvi, drugi) == 1) rez = Veliki_Broj.Oduzmi(prvi, drugi);
+                                else rez = "-" + Veliki_Broj.Oduzmi(drugi, prvi);
+                            }
+                            else
+                            {
+                                prvi = prvi.Substring(1);
+                                drugi = drugi.Substring(1);
+                                rez = Veliki_Broj.Saberi(prvi, drugi);
+                                rez = "-" + rez;
+                            }
                             Rez_Big.Text = rez;
                         }
                         else
@@ -319,7 +342,31 @@ namespace Kalkulator
                             string drugi = Drugi_Big.Text;
                             prvi = Veliki_Broj.TrimZerosFromDecimal(prvi);
                             drugi = Veliki_Broj.TrimZerosFromDecimal(drugi);
-                            string rez = Veliki_Broj.Oduzmi(prvi, drugi);
+                            string rez = "";
+                            if ((prvi[0] != '-') && (drugi[0] != '-'))
+                            {
+                                rez = Veliki_Broj.Saberi(prvi, drugi);
+                            }
+                            else if ((prvi[0] == '-') && (drugi[0] != '-'))
+                            {
+                                prvi = prvi.Substring(1);
+
+
+                            }
+                            else if ((prvi[0] != '-') && (drugi[0] == '-'))
+                            {
+                                drugi = drugi.Substring(1);
+
+
+                            }
+                            else
+                            {
+                                prvi = prvi.Substring(1);
+                                drugi = drugi.Substring(1);
+                                rez = Veliki_Broj.Saberi(prvi, drugi);
+                                rez = "-" + rez;
+                            }
+                            //string rez = Veliki_Broj.Oduzmi(prvi, drugi);
                             Rez_Big.Text = rez;
                         }
                         else
@@ -365,7 +412,10 @@ namespace Kalkulator
                     case "/":
                         if ((Veliki_Broj.Proveri_Veliki(Prvi_Big.Text) == true) && (Veliki_Broj.Proveri_Veliki(Drugi_Big.Text) == true))
                         {
-
+                            string prvi = Prvi_Big.Text;
+                            string drugi = Drugi_Big.Text;
+                            int rez = Veliki_Broj.Podeli_Medjurezultat(prvi, drugi);
+                            Rez_Big.Text = rez.ToString();
                         }
                         else
                         {
