@@ -485,13 +485,6 @@ namespace Kalkulator
                 string temp = Oduzmi(a, Pomnozi(kol,b));
                 if (temp == "0") return rez + kol;
                 else rez = rez + kol + ".";
-                /*while (temp != "0")
-                {
-                    temp = temp + "0";
-                    kol = Kolicnik(new VelikiBroj(temp), b);
-                    rez = rez + kol;
-                    temp = new VelikiBroj(temp) - new VelikiBroj(new VelikiBroj(kol) * b);
-                }*/
                 int br_decimala = int.Parse(Form1.forma1.Decimale.Text);
                 for (int i = 0; i < br_decimala + ukupno; i++)
                 {
